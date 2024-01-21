@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>Movimientos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+<div class="container-fluid bg-dark text-white text-center mb-4" style="height: 100px;
+     display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 70px; ">
+  <h2>Movimientos</h2>
+</div>
+<div class="container" style="max-width: 3600px;">
+  <div class="row justify-content-center">
+    <div class="col-md-2 mb-3 mx-0" th:each="move : ${move}">
+      <div class="card px1">
+        <div class="card-body">
+          <h2 class="card-title" th:text="${move.name}" style="text-align: center;"></h2>
+        </div>
+        <img height="34px" width="64px" style="display: block; margin-left: auto; margin-right: auto;" th:if="${move.damage_class().name() == 'physical'}" src="https://images.wikidexcdn.net/mwuploads/wikidex/5/54/latest/20230130142459/Clase_f%C3%ADsico_LGPE.png" alt="Imagen Físico">
+        <img height="34px" width="64px" style="display: block; margin-left: auto; margin-right: auto;" th:if="${move.damage_class().name() == 'special'}" src="https://images.wikidexcdn.net/mwuploads/wikidex/7/7e/latest/20230130141349/Clase_especial_LGPE.png" alt="Imagen Especial">
+        <img height="34px" width="64px" style="display: block; margin-left: auto; margin-right: auto;" th:if="${move.damage_class().name() == 'status'}" src="https://images.wikidexcdn.net/mwuploads/wikidex/6/63/latest/20230130142318/Clase_estado_LGPE.png" alt="Imagen Estatus">
+        <img height="16px" width="80px" style="display: block; margin-left: auto; margin-right: auto;" th:if="${move.type().name() == 'normal'}" src="https://images.wikidexcdn.net/mwuploads/wikidex/thumb/9/99/latest/20221208180705/Tipo_normal_EP.png/80px-Tipo_normal_EP.png" alt="Normal-type">
+        <img height="16px" width="80px" style="display: block; margin-left: auto; margin-right: auto;" th:if="${move.type().name() == 'fire'}" src="https://images.wikidexcdn.net/mwuploads/wikidex/thumb/c/c0/latest/20221208180625/Tipo_fuego_EP.png/80px-Tipo_fuego_EP.png" alt="Fire-type">
+        <img height="16px" width="80px" style="display: block; margin-left: auto; margin-right: auto;" th:if="${move.type().name() == 'water'}" src="https://images.wikidexcdn.net/mwuploads/wikidex/thumb/5/59/latest/20221208180426/Tipo_agua_EP.png/80px-Tipo_agua_EP.png" alt="Water-type">
+        <img height="16px" width="80px" style="display: block; margin-left: auto; margin-right: auto;" th:if="${move.type().name() == 'electric'}" src="https://images.wikidexcdn.net/mwuploads/wikidex/thumb/3/38/latest/20221208180452/Tipo_el%C3%A9ctrico_EP.png/80px-Tipo_el%C3%A9ctrico_EP.png" alt="Electric-type">
+        <img height="16px" width="80px" style="display: block; margin-left: auto; margin-right: auto;" th:if="${move.type().name() == 'grass'}" src="https://images.wikidexcdn.net/mwuploads/wikidex/thumb/a/a7/latest/20221208180710/Tipo_planta_EP.png/80px-Tipo_planta_EP.png" alt="Grass-type">
+        <img height="16px" width="80px" style="display: block; margin-left: auto; margin-right: auto;" th:if="${move.type().name() == 'ice'}" src="https://images.wikidexcdn.net/mwuploads/wikidex/thumb/1/17/latest/20221208180641/Tipo_hielo_EP.png/80px-Tipo_hielo_EP.png" alt="Ice-type">
+        <img height="16px" width="80px" style="display: block; margin-left: auto; margin-right: auto;" th:if="${move.type().name() == 'dragon'}" src="https://images.wikidexcdn.net/mwuploads/wikidex/thumb/b/b8/latest/20221208180443/Tipo_drag%C3%B3n_EP.png/80px-Tipo_drag%C3%B3n_EP.png" alt="Dragon-type">
+        <img height="16px" width="80px" style="display: block; margin-left: auto; margin-right: auto;" th:if="${move.type().name() == 'fighting'}" src="https://images.wikidexcdn.net/mwuploads/wikidex/thumb/5/5f/latest/20221208180651/Tipo_lucha_EP.png/80px-Tipo_lucha_EP.png" alt="Fighting-type">
+        <img height="16px" width="80px" style="display: block; margin-left: auto; margin-right: auto;" th:if="${move.type().name() == 'poison'}" src="https://images.wikidexcdn.net/mwuploads/wikidex/thumb/1/11/latest/20221208180751/Tipo_veneno_EP.png/80px-Tipo_veneno_EP.png" alt="Poison-type">
+        <img height="16px" width="80px" style="display: block; margin-left: auto; margin-right: auto;" th:if="${move.type().name() == 'ground'}" src="https://images.wikidexcdn.net/mwuploads/wikidex/thumb/c/c9/latest/20221208180742/Tipo_tierra_EP.png/80px-Tipo_tierra_EP.png" alt="Ground-type">
+        <img height="16px" width="80px" style="display: block; margin-left: auto; margin-right: auto;" th:if="${move.type().name() == 'flying'}" src="https://images.wikidexcdn.net/mwuploads/wikidex/thumb/9/9a/latest/20221208180800/Tipo_volador_EP.png/80px-Tipo_volador_EP.png" alt="Flying-type">
+        <img height="16px" width="80px" style="display: block; margin-left: auto; margin-right: auto;" th:if="${move.type().name() == 'psychic'}" src="https://images.wikidexcdn.net/mwuploads/wikidex/thumb/9/9b/latest/20221208180717/Tipo_ps%C3%ADquico_EP.png/80px-Tipo_ps%C3%ADquico_EP.png" alt="Psychic-type">
+        <img height="16px" width="80px" style="display: block; margin-left: auto; margin-right: auto;" th:if="${move.type().name() == 'bug'}" src="https://images.wikidexcdn.net/mwuploads/wikidex/thumb/5/5d/latest/20221208180434/Tipo_bicho_EP.png/80px-Tipo_bicho_EP.png" alt="Bug-type">
+        <img height="16px" width="80px" style="display: block; margin-left: auto; margin-right: auto;" th:if="${move.type().name() == 'rock'}" src="https://images.wikidexcdn.net/mwuploads/wikidex/thumb/8/88/latest/20221208180726/Tipo_roca_EP.png/80px-Tipo_roca_EP.png" alt="Rock-type">
+        <img height="16px" width="80px" style="display: block; margin-left: auto; margin-right: auto;" th:if="${move.type().name() == 'ghost'}" src="https://images.wikidexcdn.net/mwuploads/wikidex/thumb/0/03/latest/20221208180503/Tipo_fantasma_EP.png/80px-Tipo_fantasma_EP.png" alt="Ghost-type">
+        <img height="16px" width="80px" style="display: block; margin-left: auto; margin-right: auto;" th:if="${move.type().name() == 'dark'}" src="https://images.wikidexcdn.net/mwuploads/wikidex/thumb/d/de/latest/20221208180734/Tipo_siniestro_EP.png/80px-Tipo_siniestro_EP.png" alt="Dark-type">
+        <img height="16px" width="80px" style="display: block; margin-left: auto; margin-right: auto;" th:if="${move.type().name() == 'steel'}" src="https://images.wikidexcdn.net/mwuploads/wikidex/thumb/5/52/latest/20221208180543/Tipo_acero_EP.png/80px-Tipo_acero_EP.png" alt="Steel-type">
+        <img height="16px" width="80px" style="display: block; margin-left: auto; margin-right: auto;" th:if="${move.type().name() == 'fairy'}" src="https://images.wikidexcdn.net/mwuploads/wikidex/thumb/9/97/latest/20221208180633/Tipo_hada_EP.png/80px-Tipo_hada_EP.png" alt="Fairy-type">
+        <h4 class="card-title" th:text="'Poder: ' + ${move.power}" style="text-align: center;"></h4>
+        <h4 class="card-title" th:text="'Precisión: ' + ${move.accuracy}" style="text-align: center;"></h4>
+        <h4 class="card-title" th:text="'PP: ' + ${move.pp}" style="text-align: center;"></h4>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
